@@ -3,20 +3,39 @@ package callbiller;
 import java.time.Duration;
 import java.time.LocalTime;
 
-import callbiller.exceptions.InvalidCallException;
-import callbiller.exceptions.InvalidCallTimeStampException; 
+import callbiller.exceptions.InvalidCallException; 
 
 public class CallRecord {
     private String origin, destination;
     private long durationSeconds;
+    private long costCents;
 
     public CallRecord(String origin, String destination, long durationSeconds) {
         this.origin = origin;
         this.destination = destination;
         this.durationSeconds = durationSeconds;
+
+        // Calculate cost of the call:
+        calculateCost();
     }
 
-    public static CallRecord parse(String string) throws InvalidCallException, InvalidCallTimeStampException {
+    public String getOrigin() {
+        return this.origin;
+    }
+
+    public String getDestination() {
+        return this.destination;
+    }
+
+    public long getDurationSeconds() {
+        return this.durationSeconds;
+    }
+
+    public long getCostCents() {
+        return this.costCents;
+    }
+
+    public static CallRecord parse(String string) throws InvalidCallException {
         String[] fields = string.split(";");
         
         if (fields.length != 4)
@@ -42,6 +61,21 @@ public class CallRecord {
         if (duration.isNegative())
             duration = duration.plusDays(1);
 
-        return duration.toMinutes();
+        return duration.getSeconds();
+    }
+
+    private void calculateCost() {
+        long numberOfMinutes = durationSeconds / 60;
+
+        // A call that took 1min and 26s needs to be billed as 2min:
+        if (durationSeconds % 60 != 0)
+            numberOfMinutes++;
+        
+        if (numberOfMinutes <= 5)
+            this.costCents = numberOfMinutes * 5;
+        else {
+            long numberOfMinutesAfter5 = numberOfMinutes - 5;
+            this.costCents = (5 * 5) + (numberOfMinutesAfter5 * 2);
+        }
     }
 }
