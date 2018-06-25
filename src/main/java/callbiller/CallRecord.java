@@ -31,7 +31,7 @@ public class CallRecord {
         return this.durationSeconds;
     }
 
-    public long getCostCents() {
+    public long getCost() {
         return this.costCents;
     }
 
