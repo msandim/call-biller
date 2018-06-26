@@ -36,10 +36,11 @@ public class Biller {
     public BigDecimal getTotalCost() {
         Long totalCost = 0L;
 
+        // Sum all the costs from each number:
         for (Map.Entry<String, NumberBill> bill : numberBills.entrySet())
             totalCost += bill.getValue().getCost();
         
-        // Remove the cost for the numbers with the highest bills:
+        // Remove the cost for the numbers with the highest bills (numbers with the longest total call time):
         for (NumberBill bill: highestNumberBills)
             totalCost -= bill.getCost();
 
