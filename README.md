@@ -1,5 +1,11 @@
 # call-biller
 
+This program reads a file of call records and outputs the total cost of the calls.
+
+## Requirements
+
+- JDK8 installed
+
 ## Compiling
 
 ```./gradlew build```
