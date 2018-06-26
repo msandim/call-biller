@@ -29,7 +29,7 @@ public class Main {
             stream.forEach(line -> {
                 try {
                     CallRecord record = CallRecord.parse(line); // parse the line as a call record
-                    biller.addCall(record); // add call record to the biller:
+                    biller.addCall(record); // add call record to the biller
                 } catch (Exception e) {
                     System.err.println("Warning: the following line is an invalid call record: " + line);
                 }
