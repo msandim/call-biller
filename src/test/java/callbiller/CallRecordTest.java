@@ -37,6 +37,7 @@ public class CallRecordTest {
             CallRecord record = CallRecord.parse("09:10:30;09:10:32;+351914374373;+351215355312");
             assertEquals("+351914374373", record.getOrigin(), "Invalid origin number.");
             assertEquals("+351215355312", record.getDestination(), "Invalid destination number.");
+            assertEquals(2L, record.getDurationSeconds(), "Invalid duration.");
 		} catch (Exception e) {
             fail("Exception was thrown.");
 		}
