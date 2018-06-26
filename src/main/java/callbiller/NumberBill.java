@@ -3,15 +3,18 @@ package callbiller;
 public class NumberBill {
     private String phoneNumber;
     private long cost;
+    private long duration;
 
     public NumberBill(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         this.cost = 0;
+        this.duration = 0;
     }
 
-    public NumberBill(String phoneNumber, long cost) {
+    public NumberBill(String phoneNumber, long cost, long duration) {
         this.phoneNumber = phoneNumber;
         this.cost = cost;
+        this.duration = duration;
     }
 
     public String getNumber() {
@@ -22,8 +25,13 @@ public class NumberBill {
         return this.cost;
     }
 
-	public void addCallCost(long callCost) {
-		this.cost += callCost;
+    public long getDuration() {
+        return this.duration;
+    }
+
+	public void addCallData(CallRecord call) {
+        this.cost += call.getCost();
+        this.duration += call.getDurationSeconds();
     }
     
     @Override

@@ -16,20 +16,20 @@ public class Biller {
 
         // If the call's origin is already in the bills, update the bill:
         if (numberBills.containsKey(originNumber))
-            numberBills.get(originNumber).addCallCost(call.getCost());
+            numberBills.get(originNumber).addCallData(call);
         else // Otherwise add it:
-            numberBills.put(originNumber, new NumberBill(originNumber, call.getCost()));
+            numberBills.put(originNumber, new NumberBill(originNumber, call.getCost(), call.getDurationSeconds()));
 
         NumberBill originNumberBill = numberBills.get(originNumber);
 
         if (highestNumberBills.isEmpty())
             highestNumberBills.add(originNumberBill);
-        // if this number is the one with the highest bill, delete all bills on highestUserBills and add this one:
-        else if (originNumberBill.getCost() > highestNumberBills.get(0).getCost()) {
+        // if this number is the one with the highest call duration, delete all bills on highestUserBills and add this one:
+        else if (originNumberBill.getDuration() > highestNumberBills.get(0).getDuration()) {
             highestNumberBills.clear();
             highestNumberBills.add(originNumberBill);
-        } // In order to cover the case the highest bill is shared with several numbers:
-        else if (originNumberBill.getCost() == highestNumberBills.get(0).getCost())
+        } // In order to cover the case the highest call duration is shared with several numbers:
+        else if (originNumberBill.getDuration() == highestNumberBills.get(0).getDuration())
             highestNumberBills.add(originNumberBill);
     }
 

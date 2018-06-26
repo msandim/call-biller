@@ -51,7 +51,7 @@ public class BillerTest {
 
         try {
             biller.addCall(CallRecord.parse("09:11:30;09:15:22;+351914374373;+351215355312"));
-            biller.addCall(CallRecord.parse("15:20:04;15:23:49;+351217538222;+351214434422"));
+            biller.addCall(CallRecord.parse("15:20:04;15:23:56;+351217538222;+351214434422"));
             biller.addCall(CallRecord.parse("16:43:02;16:50:20;+351217235554;+351329932233"));
             biller.addCall(CallRecord.parse("17:44:04;17:49:30;+351914374373;+351963433432"));
             biller.addCall(CallRecord.parse("17:44:04;17:49:30;+351217538222;+351963433432"));
