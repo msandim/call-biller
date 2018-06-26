@@ -1,9 +1,18 @@
 package callbiller.exceptions;
 
-public class InvalidCallException extends Exception {  
+/**
+ * Class that represents an Exception thrown when an invalid call is parsed with
+ * CallRecord::parse.
+ */
+public class InvalidCallException extends Exception {
     private static final long serialVersionUID = -6923549002021081558L;
 
-	public InvalidCallException(String s) {  
-        super(s);  
-    }  
-}   
+    /**
+     * Constructor for InvalidCallException.
+     * 
+     * @param s Call record that was being parsed
+     */
+    public InvalidCallException(String s) {
+        super(s);
+    }
+}

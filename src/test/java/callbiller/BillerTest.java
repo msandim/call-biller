@@ -10,8 +10,15 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Class for tests for the Biller class.
+ */
 public class BillerTest {
 
+    /**
+     * Test for the case when one of the numbers has the highest total duration in
+     * seconds.
+     */
     @Test
     void testBillsOneHighestBill() {
 
@@ -44,6 +51,10 @@ public class BillerTest {
             fail("Highest bill number is incorrect.");
     }
 
+    /**
+     * Test for the case when two of the numbers have the highest total duration in
+     * seconds.
+     */
     @Test
     void testBillsTwoHighestBills() {
 

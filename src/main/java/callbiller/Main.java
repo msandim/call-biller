@@ -6,6 +6,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+/**
+ * Main class that reads a file and calculates the total cost of the calls on
+ * it.
+ */
 public class Main {
     public static void main(String[] args) {
 
@@ -20,6 +24,11 @@ public class Main {
         System.out.println(cost);
     }
 
+    /**
+     * Calculates the total cost of the calls in a specific file.
+     * 
+     * @param filename Filename of calls
+     */
     public static BigDecimal calculateCallsCost(String filename) {
 
         Biller biller = new Biller();
