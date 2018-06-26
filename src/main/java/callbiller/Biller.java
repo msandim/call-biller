@@ -8,8 +8,6 @@ import java.util.Map;
 
 public class Biller {
 
-    // private Set<CallerBill> callers = new HashSet<>();
-    // private Set<CallerBill> billFreeCallers = new HashSet<>();
     private Map<String, NumberBill> numberBills = new HashMap<>();
     private List<NumberBill> highestNumberBills = new ArrayList<>();
 
